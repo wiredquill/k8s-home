@@ -4,7 +4,7 @@ metadata:
   name: nfs-vol-01
 spec:
   capacity:
-    storage: 100Mi
+    storage: 1000Mi
   accessModes:
     - ReadWriteMany
   nfs:
