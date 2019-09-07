@@ -9,4 +9,4 @@ spec:
     - ReadWriteMany
   nfs:
     server: 10.0.0.10
-    path: "/volume1/SUSE/nfs-mount/"
+    path: "/volume1/SUSE/nfs-mount/test/"
