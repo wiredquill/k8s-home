@@ -1,0 +1,34 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: heimdall-shared-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: heimdall-shared
+  template:
+    metadata:
+      labels:
+        app: heimdall-shared
+    spec:
+      containers:
+      - name: heimdall-pod
+        image: linuxserver/heimdall
+        securityContext:
+          runAsUser: 0
+        ports:
+          - containerPort: 80
+        volumeMounts:
+            # name must match the volume name below
+          - name: nfs-vol-01
+            mountPath: "/config"
+        env:
+        - name: PUID
+          value: 0
+        - name: PGID
+          value: 0
+      volumes:
+      - name: nfs-vol-01
+        persistentVolumeClaim:
+        claimName: nfs-detritus-suse-claim
