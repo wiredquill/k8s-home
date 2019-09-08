@@ -1,7 +1,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: nfs-vol-01
+  name: nfs-detritus-suse-claim
 spec:
   accessModes:
     - ReadWriteMany

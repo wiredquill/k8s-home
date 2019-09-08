@@ -18,9 +18,9 @@ spec:
         name: busybox
         volumeMounts:
           # name must match the volume name below
-          - name: nfs-vol-01
+          - name: nfs-vol-01-storage
             mountPath: "/mnt"
       volumes:
-      - name: nfs-vol-01
+      - name: nfs-vol-01-storage
         persistentVolumeClaim:
-          claimName: nfs-vol-01
+          claimName: nfs-detritus-suse-claim
