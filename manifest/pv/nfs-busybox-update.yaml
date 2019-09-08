@@ -5,7 +5,7 @@ metadata:
   labels:
     app: busybox
 spec:
-  replicas: 1
+  replicas: 10
   strategy:
     type: RollingUpdate
   selector:
@@ -18,16 +18,6 @@ spec:
     spec:
       containers:
       - name: busybox
-        securityContext:
-          runAsUser: 1026
         image: busybox
         imagePullPolicy: IfNotPresent
         command: ['sh', '-c', 'echo Container 1 is Running ; sleep 3600']
-        volumeMounts:
-          # name must match the volume name below
-          - name: nfs-vol-01-storage
-            mountPath: "/mnt"
-      volumes:
-      - name: nfs-vol-01-storage
-        persistentVolumeClaim:
-          claimName: nfs-detritus-suse-claim
