@@ -4,9 +4,6 @@ metadata:
   name: heimdall-shared-deployment
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app: heimdall-shared
   template:
     metadata:
       labels:
@@ -25,9 +22,9 @@ spec:
             mountPath: "/config"
         env:
         - name: PUID
-          value: 0
+          value: "0"
         - name: PGID
-          value: 0
+          value: "0"
       volumes:
       - name: nfs-vol-01
         persistentVolumeClaim:
