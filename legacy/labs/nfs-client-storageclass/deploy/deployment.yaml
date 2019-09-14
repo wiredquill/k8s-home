@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: nfs-client-provisioner
-          image: rmt.example.com:5000/quay.io/external_storage/nfs-client-provisioner:latest
+          image: quay.io/external_storage/nfs-client-provisioner:latest
           volumeMounts:
             - name: nfs-client-root
               mountPath: /persistentvolumes
@@ -23,11 +23,11 @@ spec:
             - name: NFS_SERVER
               value: 192.168.110.2
             - name: NFS_PATH
-              value: /export/volumes
+              value: /export
       serviceAccount: nfs-client-provisioner
       serviceAccountName: nfs-client-provisioner
       volumes:
         - name: nfs-client-root
           nfs:
             server: 192.168.110.2
-            path: /export/volumes
+            path: /export
