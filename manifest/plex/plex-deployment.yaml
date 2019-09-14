@@ -1,32 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: heimdall
+  name: plex
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: heimdall
+      app: plex
   template:
     metadata:
       labels:
-        app: heimdall
+        app: plex
     spec:
       containers:
-      - name: heimdall
-        image: linuxserver/heimdall
+      - name: plex
+        image: rmt.example.com:5000/plexinc/pms-docker
         ports:
-          - containerPort: 80
+          - containerPort: 32400
         env:
-        - name: PUID
+        - name: TZ
+          value: "America/Los_Angeles"
+        - name: PLEX_CLAIM
+          value: "claim-szM_ogtgsnx4nsi2VckA"
+        - name: PLEX_UID
           value: "1000"
-        - name: PGID
+        - name: PLEX_GID
           value: "100"
         volumeMounts:
           # name must match the volume name below
-          - name: nfs-vol-01-storage
+          - name: nfs-rmt-plex-storage
             mountPath: /config
       volumes:
-      - name: nfs-vol-01-storage
+      - name: nfs-rmt-plex-config
         persistentVolumeClaim:
           claimName: nfs-detritus-suse-claim
