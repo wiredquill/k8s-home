@@ -42,11 +42,9 @@ spec:
       - name: nfs-rmt-plex-config-storage
         persistentVolumeClaim:
           claimName: nfs-rmt-plex-config-claim
-      volumes:
       - name: nfs-rmt-plex-data-storage
         persistentVolumeClaim:
           claimName: nfs-rmt-plex-data-claim
-      volumes:
       - name: nfs-rmt-plex-transcode-storage
         persistentVolumeClaim:
           claimName: nfs-rmt-plex-transcode-claim
