@@ -7,6 +7,9 @@ spec:
     storage: 1000Gi
   accessModes:
     - ReadWriteMany
+  claimRef:
+    namespace: default
+    name: nfs-rmt-plex-data-claim
   nfs:
     server: 192.168.110.2
     path: "/export/plex/data"
