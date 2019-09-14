@@ -28,25 +28,9 @@ spec:
           value: "100"
         volumeMounts:
           # name must match the volume name below
-          - name: nfs-rmt-plex-config-storage
-            mountPath: /config
-        volumeMounts:
-          # name must match the volume name below
           - name: nfs-rmt-plex-data-storage
             mountPath: /data
-        volumeMounts:
-          # name must match the volume name below
-          - name: nfs-rmt-plex-transcode-storage
-            mountPath: /transcode
-      volumes:
-      - name: nfs-rmt-plex-config-storage
-        persistentVolumeClaim:
-          claimName: nfs-rmt-plex-config-claim
       volumes:
       - name: nfs-rmt-plex-data-storage
         persistentVolumeClaim:
           claimName: nfs-rmt-plex-data-claim
-      volumes:
-      - name: nfs-rmt-plex-transcode-storage
-        persistentVolumeClaim:
-          claimName: nfs-rmt-plex-transcode-claim
