@@ -1,13 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: heimdall-shared-deployment
-  labels:
-    app: heimdall
+  name: heimdall
 spec:
   replicas: 1
-  strategy:
-    type: RollingUpdate
   selector:
     matchLabels:
       app: heimdall
@@ -17,23 +13,19 @@ spec:
         app: heimdall
     spec:
       containers:
-      - name: heimdall-pod
-        securityContext:
-          runAsUser: 0
+      - name: heimdall
+        image: linuxserver/heimdall
         ports:
           - containerPort: 80
         env:
         - name: PUID
-          value: "1026"
+          value: "1000"
         - name: PGID
-          value: "1026"
-        image: linuxserver/heimdall
-        imagePullPolicy: IfNotPresent
-        command: ['sh', '-c', 'echo Container 1 is Running ; sleep 3']
+          value: "100"
         volumeMounts:
           # name must match the volume name below
           - name: nfs-vol-01-storage
-            mountPath: "/config"
+            mountPath: /config
       volumes:
       - name: nfs-vol-01-storage
         persistentVolumeClaim:
