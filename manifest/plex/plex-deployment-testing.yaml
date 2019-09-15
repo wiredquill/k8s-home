@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: plex
-        image: rmt.example.com:5000/plexinc/pms-docker
+        image: plexinc/pms-docker
         ports:
           - containerPort: 32400
         env:
@@ -34,6 +34,7 @@ spec:
           # name must match the volume name below
           - name: nfs-rmt-plex-transcode-storage
             mountPath: /transcode
+      imagePullPolicy: Always
       volumes:
       - name: nfs-rmt-plex-config-storage
         persistentVolumeClaim:
