@@ -20,17 +20,27 @@ spec:
         env:
         - name: TZ
           value: "America/Los_Angeles"
-        - name: PLEX_CLAIM
-          value: "claim-szM_ogtgsnx4nsi2VckA"
         - name: PLEX_UID
           value: "1000"
         - name: PLEX_GID
           value: "100"
         volumeMounts:
           # name must match the volume name below
+          - name: nfs-rmt-plex-config-storage
+            mountPath: /config
+          # name must match the volume name below
           - name: nfs-rmt-plex-data-storage
             mountPath: /data
+          # name must match the volume name below
+          - name: nfs-rmt-plex-transcode-storage
+            mountPath: /transcode
       volumes:
+      - name: nfs-rmt-plex-config-storage
+        persistentVolumeClaim:
+          claimName: nfs-rmt-plex-config-claim
       - name: nfs-rmt-plex-data-storage
         persistentVolumeClaim:
           claimName: nfs-rmt-plex-data-claim
+      - name: nfs-rmt-plex-transcode-storage
+        persistentVolumeClaim:
+          claimName: nfs-rmt-plex-transcode-claim
