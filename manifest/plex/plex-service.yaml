@@ -20,16 +20,16 @@ spec:
     - protocol: TCP
       port: 1900
       nodePort: 1900
-    - protocol: UCP
+    - protocol: UDP
       port: 32410
       nodePort: 32410
-    - protocol: UCP
+    - protocol: UDP
       port: 32412
       nodePort: 32412
-    - protocol: UCP
+    - protocol: UDP
       port: 32413
       nodePort: 32413
-    - protocol: UCP
+    - protocol: UDP
       port: 32414
       nodePort: 32414
   selector:
