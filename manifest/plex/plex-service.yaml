@@ -5,7 +5,32 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 32400
+    - protocol: TCP
+      port: 32400
       nodePort: 32400
+    - protocol: TCP
+      port: 3005
+      nodePort: 3005
+    - protocol: TCP
+      port: 8324
+      nodePort: 8324   
+    - protocol: TCP
+      port: 32469
+      nodePort: 32469
+    - protocol: TCP
+      port: 1900
+      nodePort: 1900
+    - protocol: UCP
+      port: 32410
+      nodePort: 32410
+    - protocol: UCP
+      port: 32412
+      nodePort: 32412
+    - protocol: UCP
+      port: 32413
+      nodePort: 32413
+    - protocol: UCP
+      port: 32414
+      nodePort: 32414
   selector:
       app: plex
