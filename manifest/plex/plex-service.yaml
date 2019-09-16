@@ -9,22 +9,22 @@ spec:
       protocol: TCP
       port: 32400
       nodePort: 32400
-    - name: 3005-port
-      protocol: TCP
-      port: 3005
-      nodePort: 33005
-    - name: 8324-port
-      protocol: TCP
-      port: 8324
-      nodePort: 38324   
+    - #name: 3005-port
+      #protocol: TCP
+      #port: 3005
+      #nodePort: 33005
+    - #name: 8324-port
+      #protocol: TCP
+      #port: 8324
+      #nodePort: 38324   
     - name: 32469-port
       protocol: TCP
       port: 32469
       nodePort: 32469
-    - name: 1900-port
-      protocol: TCP
-      port: 1900
-      nodePort: 31900
+    - #name: 1900-port
+      #protocol: TCP
+      #port: 1900
+      #nodePort: 31900
     - name: 32410-port
       protocol: UDP
       port: 32410
