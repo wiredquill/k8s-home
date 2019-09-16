@@ -12,7 +12,7 @@ spec:
     - name: 3005-port
       protocol: TCP
       port: 3005
-      nodePort: 3005
+      nodePort: 30005
     - name: 8324-port
       protocol: TCP
       port: 8324
