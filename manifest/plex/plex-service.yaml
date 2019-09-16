@@ -5,31 +5,40 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - protocol: TCP
+    - name: 32400-port
+      protocol: TCP
       port: 32400
       nodePort: 32400
-    - protocol: TCP
+    - name: 3005-port
+      protocol: TCP
       port: 3005
       nodePort: 3005
-    - protocol: TCP
+    - name: 8324-port
+      protocol: TCP
       port: 8324
       nodePort: 8324   
-    - protocol: TCP
+    - name: 32469-port
+      protocol: TCP
       port: 32469
       nodePort: 32469
-    - protocol: TCP
+    - name: 1900-port
+      protocol: TCP
       port: 1900
       nodePort: 1900
-    - protocol: UDP
+    - name: 32410-port
+      protocol: UDP
       port: 32410
       nodePort: 32410
-    - protocol: UDP
+    - name: 32412-port
+      protocol: UDP
       port: 32412
       nodePort: 32412
-    - protocol: UDP
+    - name: 32413-port
+      protocol: UDP
       port: 32413
       nodePort: 32413
-    - protocol: UDP
+    - name: 32414-port
+      protocol: UDP
       port: 32414
       nodePort: 32414
   selector:
