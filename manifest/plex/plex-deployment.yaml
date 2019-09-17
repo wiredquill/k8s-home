@@ -15,8 +15,14 @@ spec:
       containers:
       - name: plex
         image: plexinc/pms-docker
+        imagePullPolicy: Always
         ports:
           - containerPort: 32400
+          - containerPort: 32469
+          - containerPort: 32410
+          - containerPort: 32412
+          - containerPort: 32413
+          - containerPort: 32414
         env:
         - name: TZ
           value: "America/Los_Angeles"
@@ -25,7 +31,7 @@ spec:
         - name: PLEX_GID
           value: "100"
         - name: PLEX_CLAIM
-          value: "claim-9-AyjwXV6kuSKezqA3Bh" 
+          value: "claim-9-AyjwXV6kuSKezqA3Bh"
         volumeMounts:
           # name must match the volume name below
           - name: nfs-rmt-plex-config-storage
