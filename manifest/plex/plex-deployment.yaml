@@ -31,7 +31,7 @@ spec:
         - name: PLEX_GID
           value: "100"
         - name: PLEX_CLAIM
-          value: "claim-9-AyjwXV6kuSKezqA3Bh"
+          value: "claim-kxoYyzzf8yM16Hx4Vvzx"
         volumeMounts:
           # name must match the volume name below
           - name: nfs-rmt-plex-config-storage
