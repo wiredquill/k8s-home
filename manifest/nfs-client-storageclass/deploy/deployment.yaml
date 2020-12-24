@@ -23,11 +23,11 @@ spec:
             - name: NFS_SERVER
               value: 10.0.0.10
             - name: NFS_PATH
-              value: /volume1/SUSE/nfs-share
+              value: /volume1/docker
       serviceAccount: nfs-client-provisioner
       serviceAccountName: nfs-client-provisioner
       volumes:
         - name: nfs-client-root
           nfs:
             server: 10.0.0.10
-            path: /volume1/SUSE/nfs-share
+            path: /volume1/docker
