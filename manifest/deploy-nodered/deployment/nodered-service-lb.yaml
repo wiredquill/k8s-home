@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodered
+  namespace: nodered
+spec:
+  selector:
+    app: nodered
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 1880    #Move Node-Red to port 80
+    targetPort: 1880
