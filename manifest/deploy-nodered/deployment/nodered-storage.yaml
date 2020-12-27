@@ -8,7 +8,7 @@ spec:
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
-  persistentVolumeReclaimPolicy: Recycle
+  persistentVolumeReclaimPolicy: Retain
   storageClassName: nfs
   mountOptions:
     - hard
@@ -17,7 +17,7 @@ spec:
     - ReadWriteMany
   nfs:
     server: 10.0.0.10
-    path: "/volume1/docker/"
+    path: "/volume1/k8s/nodered"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -29,4 +29,4 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 10Gi    
+      storage: 1Gi    
