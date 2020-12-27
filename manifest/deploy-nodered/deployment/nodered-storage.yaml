@@ -22,7 +22,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nfs-pvc
+  name: nodered-nfs-pvc
 spec:
   storageClassName: nfs
   accessModes:
