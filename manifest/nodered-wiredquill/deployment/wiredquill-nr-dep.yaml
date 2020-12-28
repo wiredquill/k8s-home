@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: wiredquill-nodered
-        image: wiredquill-nodered/node-red:latest
+        image: nodered/node-red:latest
         ports:
         - containerPort: 1880
           name: wq-dashboard
