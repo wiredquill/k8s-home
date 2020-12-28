@@ -24,6 +24,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: wiredquill-nodered-nfs-pvc
+  namespace: wiredquill-nodered
 spec:
   storageClassName: nfs
   accessModes:
