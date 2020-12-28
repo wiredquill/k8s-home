@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: wiredquill-nodered
+      app: wq-dashboard
   template:
     metadata:
       labels:
