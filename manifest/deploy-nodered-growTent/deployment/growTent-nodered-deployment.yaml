@@ -1,36 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodered
-  namespace: nodered
+  name: growTent-nodered
+  namespace: growTent-nodered
   labels:
-    app: nodered
+    app: growTent-nodered
 spec:
   selector:
     matchLabels:
-      app: nodered
+      app: nodered-growTent
   template:
     metadata:
       labels:
-        app: nodered
+        app: nodered-growTent
     spec:
       containers:
-      - name: nodered
+      - name: nodered-growTent
         image: nodered/node-red:latest
         ports:
         - containerPort: 1880
-          name: nodered
+          name: growTent-nodered
         securityContext:
           privileged: true
         volumeMounts:
-        - name: nodered-data
-          mountPath: ""/data"
+        - name: growTent-nodered-data
+          mountPath: /data
         env:
         - name: PUID
           value: "1000"
         - name: GUID
           value: "1000"
       volumes:
-        - name: nodered-data
+        - name: growTent-nodered-data
           persistentVolumeClaim:
-            claimName: nodered-nfs-pvc
+            claimName: growTent-nodered-nfs-pvc

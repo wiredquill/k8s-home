@@ -1,14 +1,15 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nfs-detritus-nodered
+  name: nfs-detritus-wiredquill-nodered
+  namespace: wiredquill-nodered
 spec:
   capacity:
     storage: 10Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
-  persistentVolumeReclaimPolicy: Recycle
+  persistentVolumeReclaimPolicy: Retain
   storageClassName: nfs
   mountOptions:
     - hard
@@ -17,16 +18,16 @@ spec:
     - ReadWriteMany
   nfs:
     server: 10.0.0.10
-    path: "/volume1/docker/k8s/nodered/wiredquill/"
+    path: "/volume1/k8s/nodered/wiredquill"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nfs-pvc
+  name: wiredquill-nodered-nfs-pvc
 spec:
   storageClassName: nfs
   accessModes:
     - ReadWriteMany
   resources:
     requests:
-      storage: 10Gi
+      storage: 1Gi

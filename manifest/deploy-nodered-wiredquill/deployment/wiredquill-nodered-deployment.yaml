@@ -1,36 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodered
-  namespace: nodered
+  name: wiredquill-nodered
+  namespace: wiredquill-nodered
   labels:
-    app: nodered
+    app: wiredquill-nodered
 spec:
   selector:
     matchLabels:
-      app: nodered
+      app: wiredquill-nodered
   template:
     metadata:
       labels:
-        app: nodered
+        app: wiredquill-nodered
     spec:
       containers:
-      - name: nodered
-        image: nodered/node-red:latest
+      - name: wiredquill-nodered
+        image: wiredquill-nodered/node-red:latest
         ports:
         - containerPort: 1880
-          name: nodered
+          name: wiredquill-nodered
         securityContext:
           privileged: true
         volumeMounts:
-        - name: nodered-data
-          mountPath: ""/data"
+        - name: wiredquill-nodered-data
+          mountPath: /data
         env:
         - name: PUID
           value: "1000"
         - name: GUID
           value: "1000"
       volumes:
-        - name: nodered-data
+        - name: wiredquill-nodered-data
           persistentVolumeClaim:
-            claimName: nodered-nfs-pvc
+            claimName: wiredquill-nodered-nfs-pvc
