@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wiredquill-nodered
+  name: wq-dashboard
   namespace: wiredquill-nodered
   labels:
     app: wiredquill-nodered
@@ -12,14 +12,14 @@ spec:
   template:
     metadata:
       labels:
-        app: wiredquill-nodered
+        app: wq-dashboard
     spec:
       containers:
       - name: wiredquill-nodered
         image: wiredquill-nodered/node-red:latest
         ports:
         - containerPort: 1880
-          name: wiredquill-nodered
+          name: wq-dashboard
         securityContext:
           privileged: true
         volumeMounts:
