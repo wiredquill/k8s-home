@@ -18,15 +18,6 @@ spec:
       - name: wiredquill-nodered
         image: nodered/node-red:latest
         imagePullPolicy: Always
-        livenessProbe:
-          failureThreshold: 3
-          httpGet:
-            path: /
-            port: 1880
-            scheme: HTTP
-          periodSeconds: 10
-          successThreshold: 1
-          timeoutSeconds: 1
         ports:
         - containerPort: 1880
           name: wq-dashboard
