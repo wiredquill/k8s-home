@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openhab
+  namespace: openhab
+  labels:
+    app: openhab
+spec:
+  selector:
+    matchLabels:
+      app: openhab
+  template:
+    metadata:
+      labels:
+        app: openhab
+    spec:
+      containers:
+      - name: openhab
+        image: openhab/openhab:3.0.0
+        ports:
+        - containerPort: 8080
+          name: openhab
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: openhab-data
+          mountPath: "/openhab"
+        env:
+        - name: OPENHAB_HTTP_PORT
+          value: "8080"
+        - name: EXTRA_JAVA_OPTS
+          value: "-Duser.timezone=Anericas/Los_Angeles"
+      volumes:
+        - name: openhab-data
+          persistentVolumeClaim:
+            claimName: openhab-nfs-pvc
