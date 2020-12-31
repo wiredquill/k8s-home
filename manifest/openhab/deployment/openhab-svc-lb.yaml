@@ -1,13 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodered
-  namespace: nodered
+  name: openhab
+  namespace: openhab
 spec:
   selector:
-    app: nodered
+    app: openhab
   type: LoadBalancer
   ports:
   - protocol: TCP
-    port: 1880    #Move Node-Red to port 80
-    targetPort: 1880
+    port: 8080    #Move Node-Red to port 80
+    targetPort: 8080
+    port: 8443
+    targetPort: 8443
