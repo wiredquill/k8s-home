@@ -71,7 +71,7 @@ items:
       org.openhab.cloud.service: redis
   status:
     loadBalancer: {}
-- apiVersion: extensions/v1beta1
+- apiVersion: apps/v1
   kind: Deployment
   metadata:
     annotations:
@@ -97,7 +97,7 @@ items:
           workingDir: /opt/openhabcloud
         restartPolicy: Always
   status: {}
-- apiVersion: extensions/v1beta1
+- apiVersion: apps/v1
   kind: Deployment
   metadata:
     annotations:
@@ -137,7 +137,7 @@ items:
         - emptyDir: {}
           name: mongodb-empty1
   status: {}
-- apiVersion: extensions/v1beta1
+- apiVersion: apps/v1
   kind: Deployment
   metadata:
     annotations:
@@ -170,7 +170,7 @@ items:
         - emptyDir: {}
           name: app-1
   status: {}
-- apiVersion: extensions/v1beta1
+- apiVersion: apps/v1
   kind: Deployment
   metadata:
     annotations:
